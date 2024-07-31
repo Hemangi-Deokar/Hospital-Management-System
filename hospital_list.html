@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    h2{
+        color:darkmagenta;
+    }
+    h3{
+        color:darkcyan;
+    }
+    img{
+        background-color:whitesmoke;
+    }
+  
+</style>
+<div>
+<center>
+<h2>Treatment With Unmatched Personal Care</h2>
+<h3>Connect with top healthcare providers
+    from all over the world</h3><br>
+    <img src="https://www.vaidam.com/assets/v2/images/svg/onco.svg" Oncology height="100 width=100">
+    <img src="https://www.vaidam.com/assets/v2/images/svg/cardio.svg" Cardiology height="100" width="100">
+    <img src="https://www.vaidam.com/assets/v2/images/svg/ortho.svg"Orthopedic height="100" width="100">
+    <img src="https://www.vaidam.com/assets/v2/images/svg/nuro.svg"neurosurgery height="100" width="100">
+    <img src="https://www.vaidam.com/assets/v2/images/svg/plastic.svg" Cosmetic height="100" width="100"> 
+    <img src="https://www.vaidam.com/assets/v2/images/svg/spine.svg" spine surgery  height="100" width="100">
+    
+    </center>
+    <center>.</center>
+    <center>.</center>
+    <center>.</center>
+    </div>
+
+<ul>
+    {% for hospital in hospitals %}
+    <center>
+    <li><div>
+        
+        <img src="{{ hospital.image.url }} "width="400" alt="{{ hospital.name }}" width="200">
+        <h3>{{ hospital.name }}</h3>
+        <p class="card-title"><b>Contact: </b>{{ hospital.contact_number }}</p>
+        </div>
+        <div>
+        <p><b>About: </b>{{ hospital.description }}</p>
+        <u><h5><a href="{% url 'hospital_detail' hospital.id %}">More Details</a></h5></u>
+        </div>
+        <div>
+            --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            </div>
+    </li>
+    </center>
+    {% endfor %}
+</ul>
+
+{% endblock %}
